@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset = "utf-8" />
+   <title> </title>
+   
+   <script> 
+      window.onload = function() {
+	    var canvas = document.createElement("canvas"),
+		 ctx = canvas.getContext('2d');
+		 
+		 canvas.width = 800;
+		 canvas.height = 800;
+		 
+		 document.body.appendChild(canvas);
+		 
+		 
+		 var w = 50;
+         var l = 75;
+         var Ang_x =  12/13;
+         var Ang_y = 5/13;
+		 var g = 9.8; //m/s**2
+		 var Vx = 10.419*.945;
+		 var Vy = 4.341 * .945;
+		 var t = 0;
+          //x0 : 625,
+          //y0 : 275,
+		 
+		 ctx.beginPath();
+         ctx.moveTo(25,25);
+         ctx.lineTo(25,275);
+         ctx.lineTo(625,275);
+         ctx.closePath();
+         ctx.fillStyle = "#FFCC00";
+         ctx.fill();
+		 var x0 = 625;
+		 var y0 = 275;
+		 
+		 setInterval(function (){
+		 
+		    var dt = .01;
+			t += dt;
+		    y0 -=(Vy - g*Ang_y*t);
+			x0 -= (Vx - g*Ang_x*t);
+		    
+			 ctx.clearRect(0,0,canvas.width,canvas.height);
+			 ctx.beginPath();
+             ctx.moveTo(25,25);
+             ctx.lineTo(25,275);
+             ctx.lineTo(625,275);
+             ctx.closePath();
+             ctx.fillStyle = "#FFCC00";
+             ctx.fill();
+			 
+			 
+            ctx.beginPath();
+            ctx.moveTo(x0,y0);
+            ctx.lineTo((x0+w*Ang_y),(y0-w*Ang_x));
+            ctx.lineTo(((x0+w*Ang_y)-l*Ang_x),((y0-w*Ang_x)-l*Ang_y));
+            ctx.lineTo((x0-l*(Ang_x)),(y0-l*(Ang_y)));
+            ctx.closePath();
+            ctx.fillStyle = '#7FFF00';
+            ctx.fill();
+			
+		 },50);
+		 
+		 //c.fillStyle = "black"
+		 //c.fillRect(0,0,canvas.width,canvas.height);
+	  };
+	 </script>
+	<style> 
+	body,html{
+	  margin : 0px;
+	  padding : 0px;
+	}
+	</style>
+	</head>
+	<body>
+	</body>
+	
+	</html>
