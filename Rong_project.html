@@ -52,7 +52,7 @@ window.alert("not working.");
 function Myfunction1() {
     
 		 
-		 //document.body.appendChild(canvas);
+		 document.body.appendChild(canvas);
 		 
 		 
 		 var w = 50;
@@ -83,14 +83,14 @@ function Myfunction1() {
 		    y0 -=(Vy - g*Ang_y*t);
 			x0 -= (Vx - g*Ang_x*t);
 		    
-			 ctx.clearRect(0,0,canvas.width,canvas.height);
-			 ctx.beginPath();
-             ctx.moveTo(25,25);
-             ctx.lineTo(25,275);
-             ctx.lineTo(625,275);
-             ctx.closePath();
-             ctx.fillStyle = "#FFCC00";
-             ctx.fill();
+			ctx.clearRect(0,0,canvas.width,canvas.height);
+			ctx.beginPath();
+            ctx.moveTo(25,25);
+            ctx.lineTo(25,275);
+            ctx.lineTo(625,275);
+            ctx.closePath();
+            ctx.fillStyle = "#FFCC00";
+            ctx.fill();
 			 
 			 
             ctx.beginPath();

@@ -3,6 +3,8 @@
 <head>
   <meta charset = "utf-8" />
    <title> </title>
+   <p id = "Contex"> Running </P>
+   <p> <button onclick = "Myfunction1()"> Click </button> </P>
    
    <script> 
       window.onload = function() {
@@ -43,15 +45,15 @@
 		    y0 -=(Vy - g*Ang_y*t);
 			x0 -= (Vx - g*Ang_x*t);
 		    
-			 ctx.clearRect(0,0,canvas.width,canvas.height);
-			 ctx.beginPath();
-             ctx.moveTo(25,25);
-             ctx.lineTo(25,275);
-             ctx.lineTo(625,275);
-             ctx.closePath();
-             ctx.fillStyle = "#FFCC00";
-             ctx.fill();
-			 
+			ctx.clearRect(0,0,canvas.width,canvas.height);
+			ctx.beginPath();
+			ctx.moveTo(25,25);
+			ctx.lineTo(25,275);
+			ctx.lineTo(625,275);
+			ctx.closePath();
+			ctx.fillStyle = "#FFCC00";
+			ctx.fill();
+		 
 			 
             ctx.beginPath();
             ctx.moveTo(x0,y0);

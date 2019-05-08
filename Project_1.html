@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="1000" height="400" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<p id = "demo"> Running </P>
+<p id = "cd"></p>
+<p id = "di"></p>
+<p> <button onclick = "T = setInterval(function() { Myfunction1()},40)"> Click </button> 
+<button onclick="T2 = setInterval(function(){partTwo()},40)"> 2nd Park</button>
+<button onclick = "T3 = setInterval(function(){partThree()},40)"> 3rd park</button>   </p>
+<p> <button onclick = "restart()"> Reset </button></p>
+<p> <button onclick = "Stop()"> Stop </button></p>
+
+<script>
+
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var T;
+var T2;
+var T3;
+
+
+ctx.beginPath();
+ctx.moveTo(25,25);
+ctx.lineTo(25,275);
+ctx.lineTo(625,275);
+ctx.closePath();
+ctx.fillStyle = "#FFCC00";
+ctx.fill();
+
+
+
+ var w = 50;
+ var l = 75;
+ var Ang_x =  (12/13);
+ var Ang_y = 5/13;
+ var x0 = 625;
+ var y0 = 275;
+ var t = 0;
+ var TorF = 0;
+var o = setInterval(function (){
+		 
+		    
+		    //y0 -=(Vy - g*Ang_y*t);
+			//x0 -= (Vx - g*Ang_x*t);
+		    
+			 
+			 ctx.clearRect(0,0,myCanvas.width,myCanvas.height);
+			 ctx.beginPath();
+             ctx.moveTo(25,25);
+             ctx.lineTo(25,275);
+             ctx.lineTo(625,275);
+             ctx.closePath();
+             ctx.fillStyle = "#FFCC00";
+             ctx.fill();
+			 
+			
+            ctx.beginPath();
+            ctx.moveTo(x0,y0);
+            ctx.lineTo((x0+w*Ang_y),(y0-w*Ang_x));
+            ctx.lineTo(((x0+w*Ang_y)-l*Ang_x),((y0-w*Ang_x)-l*Ang_y));
+            ctx.lineTo((x0-l*(Ang_x)),(y0-l*(Ang_y)));
+            ctx.closePath();
+            ctx.fillStyle = '#7FFF00';
+            ctx.fill();
+			
+
+		 },40);
+
+
+          
+
+
+function Myfunction(){
+window.alert("not working.");
+}
+
+function partThree(){
+document.getElementById("di").innerHTML = "("+Ang_x+","+Ang_y+")";
+document.getElementById("cd").innerHTML = "t = " + t;
+           dt = 5;
+		   t += dt;
+		   //t -= 75;
+		   Ang_y = 0 ;
+		   Ang_x = 1 ;
+	       x0 += dt;
+		   y0 += 0;
+		   
+		   if(x0 >=1000){
+		   clearInterval(T3);
+		   }
+
+}
+
+function restart(){
+
+  
+  
+  x0 = 625;
+  y0 = 275;
+  
+  Ang_x =  (12/13);
+  Ang_y = 5/13;
+  clearInterval(T);
+  t = 0;
+  //return (x0 , y0 , t);
+ 
+}
+
+function Stop() {
+clearInterval(T);
+clearInterval(T2);
+clearInterval(T3);
+}
+
+function partTwo(){
+
+			//function down(){
+               dt = 1.8;
+			   t += dt;
+			   
+
+			   var K = l / (5/13);
+			   var dx = dt;
+			   			   var x = t;
+
+			   var sinA = x/K;
+			   var cosA = Math.sqrt(1 - sinA*sinA);
+			   //var dA = 1 /(K*cosA);
+			   var sinB =Math.sin(Math.PI - Math.asin(sinA) - Math.PI + Math.asin(5/13));
+			   var cosB = Math.cos(Math.PI - Math.asin(sinA) - Math.PI + Math.asin(5/13));
+			   
+			   Ang_x = cosB;
+			   Ang_y = sinB;
+			
+			document.getElementById("di").innerHTML = "("+Ang_x+","+Ang_y+")";
+			document.getElementById("cd").innerHTML = "t = " + t;
+			   
+
+			   
+			   x0 += dt;
+			   y0 += 0;
+			  		
+	        if(  Ang_y <= 0|| Ang_x == 1){
+			clearInterval(T2);
+			
+			}
+			//}
+   
+			
+
+			
+
+
+}
+
+function Myfunction1() {
+    
+		 
+		 //document.body.appendChild(canvas);
+		//var T = setInterval(function(){		 
+		 var g = 9.8; //m/s**2
+		 var dt = .01;
+			//t = 0;
+		 
+		 t += dt;
+		 var Vx = 10.419*.944 - g*Ang_x*t  ; 
+		 var Vy = 4.341*.944 - g*Ang_y*t ;
+
+			 y0 -= Vy ;
+			 x0 -= Vx ;
+			 
+
+			var str = document.getElementById("demo").innerHTML; 
+            var txt = str.replace("Running","W3Schools");
+            document.getElementById("demo").innerHTML = txt;
+			
+			document.getElementById("cd").innerHTML = "("+x0+","+y0+")";
+			document.getElementById("di").innerHTML = "t = " + t;
+			
+			
+			
+			
+			
+			
+			
+			 
+
+
+		 
+		 //return (x0,y0,t);
+		 
+		
+			
+			
+			
+			/*function getX(){
+			return x0;
+			}
+			function getY(){
+			return yo;
+			}*/
+			
+
+		 
+		 /*
+		 var w = 50;
+         var l = 75;
+         var Ang_x =  12/13;
+         var Ang_y = 5/13;
+		 var g = 9.8; //m/s**2
+		 var Vx = 10.419*.944;
+		 var Vy = 4.341 * .944;
+		 var t = 0;
+          //x0 : 625,
+          //y0 : 275,
+		 
+		 ctx.beginPath();
+         ctx.moveTo(25,25);
+         ctx.lineTo(25,275);
+         ctx.lineTo(625,275);
+         ctx.closePath();
+         ctx.fillStyle = "#FFCC00";
+         ctx.fill();
+		 var x0 = 625;
+		 var y0 = 275;
+		 
+		 setInterval(function (){
+		 
+		    var dt = .01;
+			t += dt;
+		    y0 -=(Vy - g*Ang_y*t);
+			x0 -= (Vx - g*Ang_x*t);
+		    
+			 ctx.clearRect(0,0,canvas.width,canvas.height);
+			 ctx.beginPath();
+             ctx.moveTo(25,25);
+             ctx.lineTo(25,275);
+             ctx.lineTo(625,275);
+             ctx.closePath();
+             ctx.fillStyle = "#FFCC00";
+             ctx.fill();
+			 
+			 
+            ctx.beginPath();
+            ctx.moveTo(x0,y0);
+            ctx.lineTo((x0+w*Ang_y),(y0-w*Ang_x));
+            ctx.lineTo(((x0+w*Ang_y)-l*Ang_x),((y0-w*Ang_x)-l*Ang_y));
+            ctx.lineTo((x0-l*(Ang_x)),(y0-l*(Ang_y)));
+            ctx.closePath();
+            ctx.fillStyle = '#7FFF00';
+            ctx.fill();           			
+		 },50);
+		 
+		 */
+
+}
+
+
+</script> 
+
+</body>
+</html>
