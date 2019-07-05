@@ -1,4 +1,5 @@
 // declare canvas for drawing
+
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
@@ -55,13 +56,19 @@ function rec(x,y){
 
 	}
 	draw1();
+	draw2 = function(){
+		// ctx.rotate(Math.atan(250/600));
+		ctx.fillStyle = "#7FFF00";
+		ctx.fillRect(this.x,this.y,this.w,this.l);
+	}
+	//draw2();
 	
 }
 
 
 var t = triangle(600,250);
 
-rec(625,275);
+var R = rec(625,275);
 
 function warning() {
 	window.alert("not working.");
