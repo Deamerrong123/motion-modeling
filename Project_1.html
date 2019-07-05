@@ -148,7 +148,8 @@ function partTwo(){
 			clearInterval(T2);
 			
 			}
-			//}
+			
+			
    
 			
 
@@ -160,27 +161,27 @@ function partTwo(){
 function Myfunction1() {
     
 		 
-		 //document.body.appendChild(canvas);
-		//var T = setInterval(function(){		 
-		 var g = 9.8; //m/s**2
-		 var dt = .01;
-			//t = 0;
-		 
-		 t += dt;
-		 var Vx = 10.419*.944 - g*Ang_x*t  ; 
-		 var Vy = 4.341*.944 - g*Ang_y*t ;
+//document.body.appendChild(canvas);
+//var T = setInterval(function(){		 
+var g = 9.8; //m/s**2
+var dt = .01;
+//t = 0;
 
-			 y0 -= Vy ;
-			 x0 -= Vx ;
-			 
+t += dt;
+var Vx = 10.419*.944 - g*Ang_x*t  ; 
+var Vy = 4.341*.944 - g*Ang_y*t ;
 
-			var str = document.getElementById("demo").innerHTML; 
-            var txt = str.replace("Running","W3Schools");
-            document.getElementById("demo").innerHTML = txt;
-			
-			document.getElementById("cd").innerHTML = "("+x0+","+y0+")";
-			document.getElementById("di").innerHTML = "t = " + t;
-			
+y0 -= Vy ;
+x0 -= Vx ;
+	
+
+var str = document.getElementById("demo").innerHTML; 
+var txt = str.replace("Running","W3Schools");
+document.getElementById("demo").innerHTML = txt;
+
+document.getElementById("cd").innerHTML = "("+x0+","+y0+")";
+document.getElementById("di").innerHTML = "t = " + t;
+
 			
 			
 			

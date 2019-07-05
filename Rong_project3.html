@@ -1,14 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head> </head>
+<head> 
+        <style>
+        
+        div {
+  width: 100px;
+  height: 50px;
+  background: red;
+  position: relative;
+  /*-webkit-animation: mymove 5s infinite;*/ /* Safari 4.0 - 8.0 */
+  animation: mymove 5s infinite;
+}
+
+/* Safari 4.0 - 8.0 */
+/* @-webkit-keyframes mymove {
+  from {left: 0px;}
+  to {left: 200px;}
+} */
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 200px;}
+}
+        </style>
+
+
+</head>
 <body>
     
         
         <canvas id="myCanvas" width="1000" height="400" style="border:1px solid #d3d3d3;">
         Your browser does not support the HTML5 canvas tag.</canvas>
 
+        <p id = "demo"> Running </P>
+        <p id = "cd"></p>
+        <p id = "ang"></p>
+        <p id = "di"></p>
+        <p id = "vx"></p>
+
+        <!-- <div></div> -->
+        
         <p id = "Run" > </p>
-        <p> <button> Start </button></p>
+        <p> <button onclick="move()"> Start </button>
+        <button onclick="stop()"> Stop </button>
+        <!-- <button onclick="move_part2()">move 2</button> -->
+        </p>
+
 
         <script src = 'Prject3.js'> </script>
     
